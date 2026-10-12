@@ -1,0 +1,108 @@
+STUDENT BUDDY KNOWLEDGE BASE
+College name: ABC Institute of Technology (REPLACE WITH YOUR COLLEGE NAME)
+Note for team: every detail below is SAMPLE data. Replace it with your real college information before the demo.
+
+#####################################
+PART 1: ACADEMICS
+#####################################
+
+ACADEMIC CALENDAR
+- Odd semester: July to December. Even semester: January to May.
+- Mid-semester exams: 8th week of each semester. End-semester exams: last two weeks of the semester.
+- Hall tickets are on the student portal 7 days before exams (needs 75% attendance and no pending fees).
+- Results are declared within 30 days after the last exam on the student portal.
+
+RULES
+- Minimum attendance: 75% in each subject. Students with 65% to 74% can apply for condonation (Rs 300 fee, valid reason needed). Below 65% students cannot sit for exams.
+- Passing criteria: minimum 40% in each subject, with at least 35% in the end-semester exam.
+- Re-evaluation: apply at the examination cell within 10 days of result, Rs 500 per subject.
+- Missed an exam due to illness: submit a medical certificate within 3 days to the examination cell.
+- Grading: 10-point CGPA. 90%+ is grade O (10), 80-89% is A+ (9), 70-79% is A (8), 60-69% is B+ (7), 50-59% is B (6), 40-49% is C (5).
+
+ACADEMIC SUPPORT AVAILABLE
+- Faculty mentor: every student is assigned a faculty mentor. Meet them at least once a month.
+- Doubt-clearing sessions: every Wednesday and Friday, 4:00 PM to 5:00 PM, in the department seminar room.
+- Remedial classes for weak students: announced by each department after mid-semester results.
+- Peer tutoring: toppers of senior batches help juniors. Register with the Academic Cell, Room 110, Admin Block.
+- Library: open 8 AM to 8 PM on weekdays, 9 AM to 2 PM on Saturday. Borrow 3 books for 14 days. E-books and journals available on the student portal.
+- Computer labs: open until 6 PM. Extra lab hours can be booked for project work with the lab in-charge.
+- Student portal: portal.abc-college.example. Username is enrollment number, default password is date of birth (DDMMYYYY).
+
+PROJECTS AND INTERNSHIPS
+- Mini project in 5th semester and major project in 8th semester. Groups of up to 4 students. Choose a guide in the first month.
+- Internships: register with the Training and Placement Cell (Room 301, Admin Block). Summer internships after 4th and 6th semester earn credits.
+
+#####################################
+PART 2: CO-CURRICULAR ACTIVITIES
+#####################################
+
+CLUBS (join by contacting the faculty coordinator or attending the orientation in the first month)
+- Coding Club: weekly coding practice on Saturdays 10 AM, hackathon training, competitive programming. Coordinator: Dr. Sharma, Computer Block.
+- Robotics Club: builds robots and drones, participates in national robotics contests. Meets Tuesdays and Thursdays 4 PM in the Robotics Lab.
+- Cultural Club: dance, music, drama and fine arts. Practice in the Seminar Hall, evenings.
+- Literary Society: debates, quizzes, creative writing, public speaking, MUN. Meets Mondays 3:30 PM, Library hall.
+- NSS (National Service Scheme): community service, blood donation camps, cleanliness drives. 120 hours of service earns certificates and grace credits.
+- Entrepreneurship Cell (E-Cell): startup ideas, pitch contests, mentoring by alumni.
+- Photography and Media Club: photography, video editing, college magazine.
+
+ANNUAL EVENTS
+- Tech Fest "TechNova": February, includes hackathon, coding contests, robotics challenge, paper presentations.
+- Cultural Fest "Rangtarang": March, includes dance, music, drama and fashion show.
+- Annual Sports Meet: January.
+- Fresher's Welcome: August. Farewell: May.
+- Registration for events opens on the student portal and notice board about 3 weeks before each event.
+
+BENEFITS AND CREDITS
+- Activity points: students need at least 100 activity points over 4 years to graduate. Clubs, events, volunteering, certifications and internships all earn points.
+- Certificates: participation, winner and organiser certificates are issued by the Student Affairs Office, Room 120, Admin Block, within 2 weeks of the event.
+- Leadership roles: student council elections are held every August. Club head, secretary and event coordinator roles are selected by faculty coordinators.
+- Funding: the college supports travel and registration fees for students who represent the college at external competitions. Apply to the Student Affairs Office with the event details at least 10 days before.
+
+CERTIFICATIONS AND SKILLS
+- The college offers free access to online learning platforms for coding, data science and communication skills through the Training and Placement Cell.
+- Recommended certifications by branch: Computer Science (cloud, web development, data analytics), Electronics (embedded systems, IoT), Mechanical (CAD, automation), Civil (AutoCAD, surveying).
+
+#####################################
+PART 3: SPORTS
+#####################################
+
+FACILITIES
+- Sports ground: cricket, football, athletics track. Open 6:00 AM to 8:00 AM and 4:30 PM to 6:30 PM.
+- Indoor sports hall: badminton, table tennis, chess, carrom. Open 9 AM to 6 PM.
+- Courts: basketball, volleyball, and kabaddi.
+- Gym: open 6:00 AM to 8:30 AM and 4:30 PM to 7:30 PM. Free for students; show your ID card. Wear proper sports shoes.
+- Equipment issue: collect from the Sports Office with your ID card and return it the same day.
+
+COLLEGE TEAMS AND TRIALS
+- Teams: cricket, football, basketball, volleyball, kabaddi, badminton, table tennis, athletics, and chess.
+- Team trials are held in the first two weeks of August. Dates are posted on the sports notice board and student portal.
+- Eligibility: any regular student with 75% attendance and no disciplinary action.
+- Practice schedule: team practice is held on weekdays 4:30 PM to 6:30 PM. Coaches give the group-wise timings after selection.
+- Inter-college tournaments: the college participates in university and state level tournaments from October to March. Selected players get duty leave for matches, with an official letter from the Sports Office.
+
+SPORTS BENEFITS
+- Sports quota scholarship for students who have played at state or national level. Apply at the Sports Office with certificates.
+- Sports achievements earn activity points: college level 5 points, university level 10 points, state level 15 points, national level 25 points.
+- Players get priority in hostel allotment and extra attendance relaxation (up to 10%) for official tournament days.
+- Sports diet: players get an extra protein-rich meal at the hostel mess during tournament season.
+
+SPORTS OFFICE
+- Location: next to the sports ground. Open 8 AM to 5 PM. Sports Officer: Mr. Verma. Email: sports@abc-college.example, Phone 0000-000002.
+
+HEALTH
+- Medical room near the sports ground is open during college hours with a nurse. For serious injuries, the college has a tie-up with a nearby hospital.
+- A physiotherapist visits the campus every Tuesday and Friday, 3 PM to 5 PM, for players.
+- Counsellor: Room 15, Admin Block, Monday to Friday, 11 AM to 3 PM. Free and confidential.
+
+#####################################
+PART 4: OFFICES AND CONTACTS
+#####################################
+Help desk: helpdesk@abc-college.example, Phone 0000-000000
+Academic Cell: Room 110, Admin Block
+Examination cell: Room 205, Admin Block, exams@abc-college.example
+Student Affairs Office: Room 120, Admin Block, studentaffairs@abc-college.example
+Training and Placement Cell: Room 301, Admin Block, placement@abc-college.example
+Sports Office: next to sports ground, sports@abc-college.example
+Library: main building, ground floor
+IT cell: Room 12, Computer Block, it@abc-college.example
+Anti-ragging helpline: 1800-180-5522 (24 hours)

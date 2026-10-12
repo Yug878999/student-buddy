@@ -1,0 +1,5 @@
+.env
+node_modules
+tickets.json
+signups.json
+leaderboard.json

@@ -1,0 +1,20 @@
+{
+  "name": "Student Buddy",
+  "short_name": "Student Buddy",
+  "description": "AI help desk for academics, activities and sports",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f2f5fb",
+  "theme_color": "#0e1a3b",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Quiz and cards", "url": "/?view=quiz" },
+    { "name": "Timetable and tasks", "url": "/?view=schedule" }
+  ]
+}

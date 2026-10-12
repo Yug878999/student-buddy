@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Student Buddy Staff Desk</title>
+<meta name="robots" content="noindex" />
+<script>
+  try {
+    var t = localStorage.getItem("sb_theme");
+    if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    document.documentElement.dataset.theme = t;
+  } catch (e) { document.documentElement.dataset.theme = "light"; }
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg:#f2f5fb; --surface:#fff; --wash:#e9eef9; --ink:#0e1a3b; --muted:#55607b; --line:#dbe2f0; --hl:#ffd83d; --ok:#138a4a; --danger:#c92a48; --blue:#1f4fe0; }
+  [data-theme="dark"] { --bg:#0b1124; --surface:#131b36; --wash:#1a2347; --ink:#e8ecfb; --muted:#9ba6c8; --line:#26305a; --ok:#4fcf8b; --danger:#ff7a90; --blue:#7aa2ff; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Figtree", "Segoe UI", system-ui, sans-serif; font-size: 15px; line-height: 1.5; }
+  main { max-width: 920px; margin: 0 auto; padding: 32px 20px 60px; }
+  h1 { font-family: "Bricolage Grotesque", "Segoe UI", sans-serif; font-size: 34px; font-weight: 800; margin: 0 0 4px; letter-spacing: -0.01em; }
+  p { margin: 0; color: var(--muted); }
+  button, input { font: inherit; color: inherit; }
+  .bar { display: flex; gap: 10px; flex-wrap: wrap; margin: 22px 0 8px; align-items: end; }
+  .bar label { display: block; flex: 1; min-width: 220px; font-weight: 600; font-size: 14px; }
+  .bar input[type="password"], .bar input[type="text"] { width: 100%; border: 0; border-bottom: 1.5px solid var(--muted); background: transparent; padding: 8px 2px; outline: 0; }
+  .bar input:focus { border-bottom-color: var(--blue); }
+  .btn { border: 1.5px solid var(--ink); background: var(--ink); color: var(--bg); border-radius: 12px; padding: 9px 18px; font-weight: 600; cursor: pointer; }
+  [data-theme="dark"] .btn { background: var(--hl); border-color: var(--hl); color: #0b1124; }
+  .btn.light { background: transparent; color: var(--ink); border-color: var(--line); }
+  [data-theme="dark"] .btn.light { background: transparent; color: var(--ink); border-color: var(--line); }
+  .msg { margin: 14px 0; min-height: 22px; }
+  .msg.err { color: var(--danger); font-weight: 600; }
+  .count { font-weight: 600; margin: 24px 0 6px; }
+  .ticket { display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .ticket.done { opacity: .55; }
+  .ticket h2 { font-size: 17px; margin: 0 0 4px; font-weight: 600; }
+  .ticket small { color: var(--muted); display: block; margin-top: 4px; }
+  .ticket .btn { align-self: start; padding: 6px 14px; font-size: 14px; }
+  .pill { display: inline-block; font-size: 12.5px; font-weight: 700; padding: 1px 10px; border-radius: 999px; background: var(--hl); color: #0e1a3b; margin-right: 8px; }
+  .ticket.done .pill { background: var(--ok); color: #fff; }
+  .tabs { display: flex; gap: 6px; margin: 18px 0 0; border-bottom: 1px solid var(--line); }
+  .tab { border: 0; background: transparent; padding: 10px 16px; font-weight: 600; color: var(--muted); cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -1px; }
+  .tab.on { color: var(--ink); border-bottom-color: var(--hl); }
+  .sums { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; margin: 18px 0; }
+  .sum { border: 1px solid var(--line); background: var(--surface); border-radius: 12px; padding: 12px 14px; text-align: left; cursor: pointer; }
+  .sum.on { border-color: var(--ink); box-shadow: 0 0 0 1px var(--ink); }
+  .sum b { display: block; font-size: 15px; }
+  .sum span { color: var(--muted); font-size: 13.5px; }
+  .tools { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin: 6px 0 10px; }
+  .tools .count { margin: 0; flex: 1; }
+  .tw { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { text-align: left; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 12.5px; color: var(--muted); font-weight: 700; }
+  td .btn { padding: 4px 12px; font-size: 13px; }
+  :focus-visible { outline: 2.5px solid var(--blue); outline-offset: 2px; border-radius: 6px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Staff desk</h1>
+  <p>Questions and sign-ups from Student Buddy. Newest first.</p>
+  <form class="bar" id="f">
+    <label>Admin key<input type="password" id="key" autocomplete="current-password" /></label>
+    <button class="btn" type="submit">Open staff desk</button>
+    <button class="btn light" type="button" id="refresh" hidden>Refresh</button>
+  </form>
+  <div class="msg" id="msg" role="status"></div>
+  <div class="tabs" id="tabs" hidden>
+    <button type="button" class="tab on" data-tab="tickets">Questions</button>
+    <button type="button" class="tab" data-tab="signups">Sign-ups</button>
+  </div>
+  <div id="list"></div>
+  <div id="signups" hidden></div>
+</main>
+<script>
+(function () {
+  var $ = function (s) { return document.querySelector(s); };
+  var key = "";
+  try { key = sessionStorage.getItem("sb_admin") || ""; } catch (e) {}
+  if (key) $("#key").value = key;
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function say(t, err) { var m = $("#msg"); m.textContent = t || ""; m.className = "msg" + (err ? " err" : ""); }
+  function headers() { return { "x-admin-key": key }; }
+  var tab = "tickets", picked = "";
+  function csv(rows) { return rows.map(function (r) { return r.map(function (c) { c = String(c == null ? "" : c); if (/^[=+\-@]/.test(c)) c = "'" + c; return '"' + c.replace(/"/g, '""') + '"'; }).join(","); }).join("\r\n"); }
+  function authFail(d) { $("#list").innerHTML = ""; $("#signups").innerHTML = ""; $("#refresh").hidden = true; $("#tabs").hidden = true; say(d.error || "Could not load.", true); }
+  function ok() { try { sessionStorage.setItem("sb_admin", key); } catch (e) {} $("#refresh").hidden = false; $("#tabs").hidden = false; say(""); }
+  async function load() {
+    say("Loading...");
+    $("#list").hidden = tab !== "tickets"; $("#signups").hidden = tab !== "signups";
+    [].forEach.call(document.querySelectorAll(".tab"), function (b) { b.classList.toggle("on", b.dataset.tab === tab); });
+    try {
+      if (tab === "signups") {
+        var rs = await fetch("/api/signups", { headers: headers() });
+        var s = await rs.json();
+        if (!rs.ok) return authFail(s);
+        ok(); drawSignups(s); return;
+      }
+      var r = await fetch("/api/tickets", { headers: headers() });
+      var d = await r.json();
+      if (!r.ok) return authFail(d);
+      ok();
+      var open = d.filter(function (t) { return !t.done; }).length;
+      $("#list").innerHTML = (d.length ? '<div class="count">' + open + " open, " + (d.length - open) + " done</div>" : '<div class="count">No tickets yet.</div>') +
+        d.map(function (t) {
+          return '<article class="ticket' + (t.done ? " done" : "") + '"><div><h2><span class="pill">' + (t.done ? "Done" : "Open") + "</span>" + esc(t.question) + "</h2><div>" + esc(t.name) + ", " + esc(t.contact) + "</div><small>" + new Date(t.time).toLocaleString("en-IN") + '</small></div><button class="btn light" data-id="' + t.id + '">' + (t.done ? "Reopen" : "Mark done") + "</button></article>";
+        }).join("");
+    } catch (e) { say("Could not reach the server.", true); }
+  }
+  var SIGNS = [];
+  function drawSignups(list) {
+    SIGNS = list;
+    var groups = {};
+    list.forEach(function (x) { var k = x.kind + ":" + x.itemId; (groups[k] = groups[k] || { k: k, kind: x.kind, title: x.itemTitle, n: 0 }).n++; });
+    var gl = Object.keys(groups).map(function (k) { return groups[k]; });
+    if (picked && !groups[picked]) picked = "";
+    var shown = picked ? list.filter(function (x) { return x.kind + ":" + x.itemId === picked; }) : list;
+    var h = '<div class="sums">' + gl.map(function (g) { return '<button type="button" class="sum' + (g.k === picked ? " on" : "") + '" data-g="' + esc(g.k) + '"><b>' + esc(g.title) + "</b><span>" + (g.kind === "club" ? "Club" : "Event") + ", " + g.n + (g.n === 1 ? " sign-up" : " sign-ups") + "</span></button>"; }).join("") + "</div>";
+    h += '<div class="tools"><div class="count">' + shown.length + (shown.length === 1 ? " sign-up" : " sign-ups") + (picked ? " for this item" : " in total") + '</div><button class="btn light" type="button" id="csvBtn"' + (shown.length ? "" : " disabled") + ">Download CSV</button></div>";
+    h += shown.length ? '<div class="tw"><table><thead><tr><th>Name</th><th>Roll or class</th><th>Contact</th><th>For</th><th>Note</th><th>When</th><th></th></tr></thead><tbody>' + shown.map(function (x) {
+      return '<tr class="su"><td>' + esc(x.name) + "</td><td>" + esc(x.roll || "") + "</td><td>" + esc(x.contact) + "</td><td>" + esc(x.itemTitle) + "</td><td>" + esc(x.note || "") + "</td><td>" + new Date(x.time).toLocaleDateString("en-IN") + '</td><td><button class="btn light" data-rm="' + x.id + '">Remove</button></td></tr>';
+    }).join("") + "</tbody></table></div>" : '<p class="msg">No sign-ups yet.</p>';
+    $("#signups").innerHTML = h;
+  }
+  document.addEventListener("click", async function (e) {
+    var t = e.target.closest(".tab"); if (t) { tab = t.dataset.tab; load(); return; }
+    var g = e.target.closest("[data-g]"); if (g) { picked = picked === g.dataset.g ? "" : g.dataset.g; drawSignups(SIGNS); return; }
+    var rm = e.target.closest("[data-rm]");
+    if (rm) { if (!confirm("Remove this sign-up?")) return; try { var r = await fetch("/api/signups/" + rm.dataset.rm + "/remove", { method: "POST", headers: headers() }); if (r.ok) load(); else say("Could not remove it.", true); } catch (err) { say("Could not reach the server.", true); } return; }
+    if (e.target.id === "csvBtn") {
+      var rows = (picked ? SIGNS.filter(function (x) { return x.kind + ":" + x.itemId === picked; }) : SIGNS).map(function (x) { return [x.kind, x.itemTitle, x.name, x.roll, x.contact, x.note, x.time]; });
+      var a = document.createElement("a"); a.href = URL.createObjectURL(new Blob(["\ufeff" + csv([["Type", "For", "Name", "Roll or class", "Contact", "Note", "Time"]].concat(rows))], { type: "text/csv;charset=utf-8" })); a.download = "signups.csv"; document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 500);
+    }
+  });
+  $("#f").addEventListener("submit", function (e) { e.preventDefault(); key = $("#key").value; load(); });
+  $("#refresh").onclick = load;
+  $("#list").addEventListener("click", async function (e) {
+    var b = e.target.closest("[data-id]"); if (!b) return;
+    try { var r = await fetch("/api/tickets/" + b.dataset.id + "/toggle", { method: "POST", headers: headers() }); if (r.ok) load(); else say("Could not update that ticket.", true); } catch (err) { say("Could not reach the server.", true); }
+  });
+  if (key) load();
+})();
+</script>
+</body>
+</html>

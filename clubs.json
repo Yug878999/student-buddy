@@ -1,0 +1,55 @@
+{
+  "_note": "SAMPLE clubs. Replace with your real clubs. category must be academics, activities or sports. Optional \"limit\" caps members. Changes show up without restarting.",
+  "clubs": [
+    {
+      "name": "Coding Club",
+      "category": "academics",
+      "desc": "Weekly coding practice, hackathon training and competitive programming.",
+      "meets": "Saturdays 10 AM",
+      "coordinator": "Dr. Sharma, Computer Block"
+    },
+    {
+      "name": "Robotics Club",
+      "category": "academics",
+      "desc": "Build robots and drones and compete in national robotics contests.",
+      "meets": "Tue and Thu 4 PM, Robotics Lab",
+      "coordinator": "Robotics Lab",
+      "limit": 30
+    },
+    {
+      "name": "Cultural Club",
+      "category": "activities",
+      "desc": "Dance, music, drama and fine arts. Performs at Rangtarang.",
+      "meets": "Evenings, Seminar Hall",
+      "coordinator": "Cultural Committee"
+    },
+    {
+      "name": "Literary Society",
+      "category": "activities",
+      "desc": "Debates, quizzes, creative writing and public speaking.",
+      "meets": "Mondays 3:30 PM, Library hall",
+      "coordinator": "Literary Society office"
+    },
+    {
+      "name": "NSS (National Service Scheme)",
+      "category": "activities",
+      "desc": "Volunteering and community service. Earns activity points.",
+      "meets": "Weekends",
+      "coordinator": "NSS Programme Officer"
+    },
+    {
+      "name": "E-Cell",
+      "category": "activities",
+      "desc": "Startup ideas, mentoring and pitch competitions.",
+      "meets": "Wednesdays 4 PM",
+      "coordinator": "Training and Placement Cell"
+    },
+    {
+      "name": "Photography and Media Club",
+      "category": "activities",
+      "desc": "Photography, video editing and the college magazine.",
+      "meets": "Thursdays 4 PM",
+      "coordinator": "Media Room"
+    }
+  ]
+}
